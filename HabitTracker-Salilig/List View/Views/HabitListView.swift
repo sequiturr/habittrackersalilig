@@ -89,7 +89,7 @@ struct HabitListView: View {
                 .presentationDragIndicator(.visible)
         }
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing,) {
+            ToolbarItem(placement: .topBarTrailing) {
                 Button(isEditMode ? "Done" : "Edit") {
                     isEditMode.toggle()
                     viewModel.refresh()
