@@ -9,3 +9,5 @@ targets:
     sources: pseudoapp
     settings:
       GENERATE_INFOPLIST_FILE: YES
+      CURRENT_PROJECT_VERSION: "1"
+      MARKETING_VERSION: "1.0"
