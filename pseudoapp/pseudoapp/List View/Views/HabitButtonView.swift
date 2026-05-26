@@ -14,11 +14,13 @@ struct HabitButtonView: View {
     @State private var showDeleteAlert = false
     
     var onEditTap: () -> Void
+    var onToggle: () -> Void
     
-    init(habit: Habit, isEditMode: Binding<Bool>, onEditTap: @escaping () -> Void = {}) {
+    init(habit: Habit, isEditMode: Binding<Bool>, onEditTap: @escaping () -> Void = {}, onToggle: @escaping () -> Void = {}) {
         self.viewModel = HabitButtonViewModel(habit: habit)
         self._isEditMode = isEditMode
         self.onEditTap = onEditTap
+        self.onToggle = onToggle
     }
     
     var body: some View {
@@ -27,6 +29,7 @@ struct HabitButtonView: View {
                 onEditTap()
             } else {
                 viewModel.buttonHabitTapped()
+                onToggle()
             }
         }) {
             HStack {

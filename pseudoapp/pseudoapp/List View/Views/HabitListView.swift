@@ -55,11 +55,17 @@ struct HabitListView: View {
             
             LazyVStack (spacing: 20) {
                 ForEach (viewModel.habits) { habit in
-                    HabitButtonView(habit: habit, isEditMode: $isEditMode)
-                    {
-                        selectedHabit = habit
-                        showAddhabitForm = true
-                    }
+                    HabitButtonView(
+                        habit: habit,
+                        isEditMode: $isEditMode,
+                        onEditTap: {
+                            selectedHabit = habit
+                            showAddhabitForm = true
+                        },
+                        onToggle: {
+                            viewModel.refresh()
+                        }
+                    )
                 }
             }
             
