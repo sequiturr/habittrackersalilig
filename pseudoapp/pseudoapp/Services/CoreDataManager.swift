@@ -29,7 +29,10 @@ class CoreDataManager {
     }
     
     func fetchHabits() -> [Habit] {
+        guard let userEmail = AuthService.shared.currentUserEmail else { return [] }
+        
         let request: NSFetchRequest<HabitEntity> = NSFetchRequest<HabitEntity>(entityName: "HabitEntity")
+        request.predicate = NSPredicate(format: "userId == %@", userEmail)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \HabitEntity.createdAt, ascending: true)]
         do {
             let entities = try context.fetch(request)
@@ -52,6 +55,8 @@ class CoreDataManager {
     }
     
     func addHabit(_ habit: Habit) {
+        guard let userEmail = AuthService.shared.currentUserEmail else { return }
+        
         let entity = HabitEntity(context: context)
         entity.id = UUID(uuidString: habit.id) ?? UUID()
         entity.emoji = habit.emoji
@@ -60,13 +65,16 @@ class CoreDataManager {
         entity.streak = Int64(habit.streak)
         entity.completedDates = habit.completedDates
         entity.createdAt = Date()
+        entity.userId = userEmail
         
         saveContext()
     }
     
     func updateHabit(_ habit: Habit) {
+        guard let userEmail = AuthService.shared.currentUserEmail else { return }
+        
         let request: NSFetchRequest<HabitEntity> = NSFetchRequest<HabitEntity>(entityName: "HabitEntity")
-        request.predicate = NSPredicate(format: "id == %@", habit.id)
+        request.predicate = NSPredicate(format: "id == %@ AND userId == %@", habit.id, userEmail)
         
         do {
             if let entity = try context.fetch(request).first {
@@ -83,8 +91,10 @@ class CoreDataManager {
     }
     
     func deleteHabit(id: String) {
+        guard let userEmail = AuthService.shared.currentUserEmail else { return }
+        
         let request: NSFetchRequest<HabitEntity> = NSFetchRequest<HabitEntity>(entityName: "HabitEntity")
-        request.predicate = NSPredicate(format: "id == %@", id)
+        request.predicate = NSPredicate(format: "id == %@ AND userId == %@", id, userEmail)
         
         do {
             if let entity = try context.fetch(request).first {
