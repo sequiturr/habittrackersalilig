@@ -20,7 +20,7 @@ struct HabitListView: View {
         VStack (alignment:.leading, spacing : 30) {
             //start
             
-            Text("Let's start the day.")
+            Text(viewModel.greeting)
                 .font(.title)
                 .fontWeight(.bold)
             
@@ -33,6 +33,21 @@ struct HabitListView: View {
                 
                 //Streak
                 Text("🔥 \(viewModel.streak) Day Streak!")
+                
+                // Daily Progress Bar
+                let completedCount = viewModel.habits.filter { $0.isCompleted }.count
+                let totalCount = viewModel.habits.count
+                if totalCount > 0 {
+                    VStack(spacing: 5) {
+                        ProgressView(value: Double(completedCount), total: Double(totalCount))
+                            .tint(.green)
+                        Text("\(completedCount) of \(totalCount) completed")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
+                    .padding(.top, 5)
+                    .padding(.horizontal, 20)
+                }
             }
             
             

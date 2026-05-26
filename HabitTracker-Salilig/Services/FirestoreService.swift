@@ -31,7 +31,7 @@ class FirestoreService {
             "title": habit.title,
             "description": habit.description,
             "streak": habit.streak,
-            "isCompleted": habit.isCompleted,
+            "completedDates": habit.completedDates,
             "createdAt": Timestamp(date: Date())
         ]
         
@@ -59,7 +59,7 @@ class FirestoreService {
             "title": habit.title,
             "description": habit.description,
             "streak": habit.streak,
-            "isCompleted": habit.isCompleted
+            "completedDates": habit.completedDates
         ]
         
         habitsColl.document(habit.id).updateData(data) { [weak self] error in
@@ -119,19 +119,23 @@ class FirestoreService {
                     guard let id = data["id"] as? String,
                           let emoji = data["emoji"] as? String,
                           let title = data["title"] as? String,
-                          let description = data["description"] as? String,
-                          let streak = data["streak"] as? Int,
-                          let isCompleted = data["isCompleted"] as? Bool
+                          let description = data["description"] as? String
                     else { return nil }
                     
-                    return Habit(
+                    let streak = data["streak"] as? Int ?? 0
+                    let completedDates = data["completedDates"] as? [String] ?? []
+                    
+                    var habit = Habit(
                         id: id,
                         emoji: emoji,
                         title: title,
                         description: description,
                         streak: streak,
-                        isCompleted: isCompleted
+                        completedDates: completedDates
                     )
+                    
+                    habit.streak = habit.calculateStreak()
+                    return habit
                 }
                 
                 completion(habits)
@@ -162,13 +166,15 @@ class FirestoreService {
         
         let userDocRef = db.collection("users").document(uid)
         
-        habitsColl.whereField("isCompleted", isEqualTo: true).getDocuments { snapshot, error in
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayStr = formatter.string(from: Date())
+        
+        habitsColl.whereField("completedDates", arrayContains: todayStr).getDocuments { snapshot, error in
             let hasCompletedHabitToday = !(snapshot?.documents.isEmpty ?? true)
             
             userDocRef.getDocument { docSnapshot, docError in
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let todayStr = formatter.string(from: Date())
+
                 
                 var currentStreak = 0
                 var lastCompleted = ""

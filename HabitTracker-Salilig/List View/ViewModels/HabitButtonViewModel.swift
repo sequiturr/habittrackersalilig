@@ -18,13 +18,17 @@ class HabitButtonViewModel: ObservableObject{
     }
     
     func buttonHabitTapped() {
-        habit.isCompleted.toggle()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayStr = formatter.string(from: Date())
         
-        if habit.isCompleted {
-            habit.streak += 1
+        if habit.completedDates.contains(todayStr) {
+            habit.completedDates.removeAll { $0 == todayStr }
         } else {
-            habit.streak -= 1
+            habit.completedDates.append(todayStr)
         }
+        
+        habit.streak = habit.calculateStreak()
         
         // Save updated state to Firestore
         FirestoreService.shared.updateHabit(habit) { success in
