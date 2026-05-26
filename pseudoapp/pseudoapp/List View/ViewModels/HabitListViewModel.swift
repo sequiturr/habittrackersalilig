@@ -97,7 +97,7 @@ class HabitListViewModel: ObservableObject {
     }
     
     func onAddHabitDismissed() {
-        // No manual refresh needed — Firestore listener auto-updates
+        refresh()
     }
     
 }
