@@ -1,0 +1,9 @@
+name: pseudoapp
+options:
+  bundleIdPrefix: com.salilig
+targets:
+  pseudoapp:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources: pseudoapp
