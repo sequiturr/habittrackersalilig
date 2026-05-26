@@ -7,3 +7,5 @@ targets:
     platform: iOS
     deploymentTarget: "16.0"
     sources: pseudoapp
+    settings:
+      GENERATE_INFOPLIST_FILE: YES

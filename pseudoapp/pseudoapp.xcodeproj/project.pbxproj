@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BAB11E8D1191DA9078DB969 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB49BC324D388588F2708B4 /* CoreDataManager.swift */; };
+		1DF53D37C0C0B035BE6EF225 /* pseudoappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAAA989863D11F2B66FF751 /* pseudoappApp.swift */; };
 		28351BC3D542690AB456809B /* pseudoapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A0C3E855CEF3FE9FD67EF12 /* pseudoapp.xcdatamodeld */; };
 		37B0F5F852135F06FB9426EF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D3ACD131A7011B3E47728 /* AuthService.swift */; };
 		45170AC5D65753E1A4ECDD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726A4B4521E4A179E1B56C2B /* Assets.xcassets */; };
-		52EB31C791ECEBCD24C06B05 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9CB368E356588720068A3 /* FirestoreService.swift */; };
 		67130CD76D342AD39179990C /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ED0DD0858D10F89A1B7BE5 /* DeveloperPreview.swift */; };
 		7B5756374941E801A34A823C /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD754D814EA11779698833C4 /* Habit.swift */; };
 		8AEA5540850E332393CAF6D3 /* HabitListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9FFD27E84E56EE0A6D3059 /* HabitListViewModel.swift */; };
@@ -18,7 +19,6 @@
 		9903E8421AAAFD8957F848D1 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3631B74FA735BE344D62C /* AddHabitView.swift */; };
 		B64F532DFFF18CB5735C08BA /* HabitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE47A7CC77DDE3ED4CB9BA3 /* HabitButtonView.swift */; };
 		C46290AB2243FC50D852F575 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD0363B0DEEAD0E25AD0DE /* AuthViewModel.swift */; };
-		DEC5C49705BEAE1D5D908DAD /* HabitTracker_SaliligApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CE9DCFAA79B64C70EFBEA9 /* HabitTracker_SaliligApp.swift */; };
 		EB40AE521D36CD31E0B025C8 /* HabitButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEFDB36603C05F22BD104B3 /* HabitButtonViewModel.swift */; };
 		F14B631DF184E4A741C5F9E4 /* AddHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605B6DB6D6665E429E499722 /* AddHabitViewModel.swift */; };
 		F4AAA1330DAB207D4B91BA31 /* FrontPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4D3E3F4D0F0513B64FF953 /* FrontPage.swift */; };
@@ -27,10 +27,10 @@
 /* Begin PBXFileReference section */
 		2DE47A7CC77DDE3ED4CB9BA3 /* HabitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitButtonView.swift; sourceTree = "<group>"; };
 		4BEF3DFC598FB24C8568981D /* pseudoapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pseudoapp.xcdatamodel; sourceTree = "<group>"; };
+		4DAAA989863D11F2B66FF751 /* pseudoappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pseudoappApp.swift; sourceTree = "<group>"; };
 		4F7BCE675A0EE1E613B4F327 /* HabitListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListView.swift; sourceTree = "<group>"; };
 		605B6DB6D6665E429E499722 /* AddHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewModel.swift; sourceTree = "<group>"; };
 		60B3631B74FA735BE344D62C /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
-		6EE9CB368E356588720068A3 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		726A4B4521E4A179E1B56C2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C4D3E3F4D0F0513B64FF953 /* FrontPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPage.swift; sourceTree = "<group>"; };
 		7D8D3ACD131A7011B3E47728 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -38,9 +38,9 @@
 		9328ED10D69168100049E5C8 /* pseudoapp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = pseudoapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD754D814EA11779698833C4 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		BF9FFD27E84E56EE0A6D3059 /* HabitListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitListViewModel.swift; sourceTree = "<group>"; };
-		C8CE9DCFAA79B64C70EFBEA9 /* HabitTracker_SaliligApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTracker_SaliligApp.swift; sourceTree = "<group>"; };
 		D1FD0363B0DEEAD0E25AD0DE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		D5ED0DD0858D10F89A1B7BE5 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
+		EDB49BC324D388588F2708B4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -112,7 +112,7 @@
 		71402DDFA27934A7FC3AD2AF /* App */ = {
 			isa = PBXGroup;
 			children = (
-				C8CE9DCFAA79B64C70EFBEA9 /* HabitTracker_SaliligApp.swift */,
+				4DAAA989863D11F2B66FF751 /* pseudoappApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7D8D3ACD131A7011B3E47728 /* AuthService.swift */,
-				6EE9CB368E356588720068A3 /* FirestoreService.swift */,
+				EDB49BC324D388588F2708B4 /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -217,16 +217,16 @@
 				F14B631DF184E4A741C5F9E4 /* AddHabitViewModel.swift in Sources */,
 				37B0F5F852135F06FB9426EF /* AuthService.swift in Sources */,
 				C46290AB2243FC50D852F575 /* AuthViewModel.swift in Sources */,
+				1BAB11E8D1191DA9078DB969 /* CoreDataManager.swift in Sources */,
 				67130CD76D342AD39179990C /* DeveloperPreview.swift in Sources */,
-				52EB31C791ECEBCD24C06B05 /* FirestoreService.swift in Sources */,
 				F4AAA1330DAB207D4B91BA31 /* FrontPage.swift in Sources */,
 				7B5756374941E801A34A823C /* Habit.swift in Sources */,
 				B64F532DFFF18CB5735C08BA /* HabitButtonView.swift in Sources */,
 				EB40AE521D36CD31E0B025C8 /* HabitButtonViewModel.swift in Sources */,
 				8E081433B16EFA0758683E6E /* HabitListView.swift in Sources */,
 				8AEA5540850E332393CAF6D3 /* HabitListViewModel.swift in Sources */,
-				DEC5C49705BEAE1D5D908DAD /* HabitTracker_SaliligApp.swift in Sources */,
 				28351BC3D542690AB456809B /* pseudoapp.xcdatamodeld in Sources */,
+				1DF53D37C0C0B035BE6EF225 /* pseudoappApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -309,6 +310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
