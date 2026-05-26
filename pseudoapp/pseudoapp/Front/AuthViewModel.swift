@@ -35,20 +35,26 @@ class AuthViewModel: ObservableObject {
         isLoading = true
         
         if isLoginMode {
-            AuthService.shared.login(email: email, password: password) { [weak self] error in
+            AuthService.shared.signIn(email: email, password: password) { [weak self] result in
                 DispatchQueue.main.async {
                     self?.isLoading = false
-                    if let error = error {
-                        self?.errorMessage = error
+                    switch result {
+                    case .success:
+                        break
+                    case .failure(let error):
+                        self?.errorMessage = error.localizedDescription
                     }
                 }
             }
         } else {
-            AuthService.shared.register(email: email, password: password) { [weak self] error in
+            AuthService.shared.signUp(email: email, password: password) { [weak self] result in
                 DispatchQueue.main.async {
                     self?.isLoading = false
-                    if let error = error {
-                        self?.errorMessage = error
+                    switch result {
+                    case .success:
+                        break
+                    case .failure(let error):
+                        self?.errorMessage = error.localizedDescription
                     }
                 }
             }
