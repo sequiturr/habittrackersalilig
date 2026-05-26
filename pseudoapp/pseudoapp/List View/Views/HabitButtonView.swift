@@ -45,7 +45,7 @@ struct HabitButtonView: View {
                 Spacer()
                 
                 if (viewModel.habit.isCompleted && !isEditMode) {
-                    Image(systemName: "checkmark.circle.fill")
+                    Text("✅")
                         .font(Font.system(size: 40))
                         .padding()
                 }
